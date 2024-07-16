@@ -27,6 +27,7 @@ public class User {
     // La tabla roles va a estar relacionada con la tabla de users. Le ponemos EAGER asi ya las tenemos a las relaciones y cascadeType.ALL asi ya cuando eliminamos algo se elimina todo
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
+    @Column(name = "rol")
     private Set<Rol> roles = new HashSet<>();
 
     public Long getId() {
@@ -73,7 +74,7 @@ public class User {
         return roles;
     }
 
-    public void setRoles(Set<Rol> roles) {
+    public void setRoles(String roles) {
         this.roles = roles;
     }
 }

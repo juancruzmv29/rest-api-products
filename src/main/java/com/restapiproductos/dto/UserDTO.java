@@ -21,6 +21,10 @@ public class UserDTO {
         this.roles = roles;
     }
 
+    public UserDTO() {
+
+    }
+
     public String getNombre() {
         return nombre;
     }
